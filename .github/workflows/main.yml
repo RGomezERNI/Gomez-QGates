@@ -110,7 +110,12 @@ jobs:
 
       - name: Create zip file
         run: |
-          zip -r Rafael.zip . # Adjust the path if you want to zip specific files or directories
+          if [ "$(ls -A .)" ]; then
+            zip -r Rafael.zip . # Adjust the path if you want to zip specific files or directories
+          else
+            echo "No files to zip!"
+            exit 1
+          fi
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
