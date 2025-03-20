@@ -105,12 +105,6 @@ jobs:
       - name: Notify completion
         run: echo "Tests are completed! Congratulations Rafael!!!!"
         
-      - name: Install dependencies
-        run: npm install
-      
-      - name: Build the application
-        run: npm run build --prod
-      
       - name: List directory contents
         run: ls -la
 
