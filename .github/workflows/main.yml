@@ -104,19 +104,19 @@ jobs:
     steps:
       - name: Notify completion
         run: echo "Tests are completed! Congratulations Rafael!!!!"
-
+        
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Build the application
+        run: npm run build --prod
+      
       - name: List directory contents
         run: ls -la
 
       - name: Create zip file
-        run: |
-          if [ "$(ls -A .)" ]; then
-            zip -r Rafael.zip . # Adjust the path if you want to zip specific files or directories
-          else
-            echo "No files to zip!"
-            exit 1
-          fi
-
+        run: zip -r Rafael.zip . dist/ 
+        
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
