@@ -110,7 +110,8 @@ jobs:
           zip -r Rafael.zip . # Adjust the path if you want to zip specific files or directories
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
+      
         with:
           name: Rafael
           path: Rafael.zip
