@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20' # or your preferred Node.js version
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
@@ -105,13 +105,15 @@ jobs:
       - name: Notify completion
         run: echo "Tests are completed! Congratulations Rafael!!!!"
 
+      - name: List directory contents
+        run: ls -la
+
       - name: Create zip file
         run: |
           zip -r Rafael.zip . # Adjust the path if you want to zip specific files or directories
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
-      
         with:
           name: Rafael
           path: Rafael.zip
